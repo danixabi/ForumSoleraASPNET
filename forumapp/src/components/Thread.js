@@ -6,19 +6,23 @@ import { useNavigate } from "react-router-dom";
 
 const Thread = () => {
   const navigate = useNavigate();
-  var UsedTitles = ["Software", "PC Building"];
+  const UsedTitles = ["Software", "PC Building"];
   const [title, setTitle] = useState("");
+  function onChange(e) {
+    setTitle(e.target.value);
+  }
   function VerifyTitle() {
-    setTitle(document.getElementById("title").value);
+    const found = UsedTitles.find(
+      (list) => list.toLowerCase() === title.toLowerCase()
+    );
 
-    //console.log(title);
-    const found = UsedTitles.find((list) => list === title);
-    console.log(list);
     if (found) {
+      alert("Repited try again");
       console.log("Repetido");
       console.log("used titles: " + UsedTitles);
     } else {
-      //navigate("/Thread/Post");
+      UsedTitles.push(title);
+      navigate("/Thread/Post");
     }
   }
 
@@ -35,6 +39,7 @@ const Thread = () => {
               name="Title"
               placeholder="Post Title"
               id="title"
+              onChange={onChange}
             ></input>
           </label>
           <button type="button" onClick={VerifyTitle}>

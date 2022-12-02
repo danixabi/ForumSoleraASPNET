@@ -14,7 +14,7 @@ const Navbar = (props) => {
             <Link to="/Topics">Topics</Link>
           </button>
           <button className="navButton">
-            <Link to="/">Log Out</Link>
+            <Link to="/Login">Log Out</Link>
           </button>
         </div>
       </div>
