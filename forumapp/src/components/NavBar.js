@@ -11,7 +11,7 @@ const Navbar = (props) => {
             <Link to="/">Home</Link>
           </button>
           <button className="navButton">
-            <Link to="/ThreadCatalog">Thread Catalog</Link>
+            <Link to="/Topics">Topics</Link>
           </button>
           <button className="navButton">
             <Link to="/">Log Out</Link>
