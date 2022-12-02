@@ -1,14 +1,30 @@
 import React from "react";
 import { Form } from "react-bootstrap";
 import { useState } from "react";
-import Logining from "./Logining";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = (props) => {
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  function Logining() {
-    console.log("user: " + user, "password: " + password);
+  const selectUser = (e) => {
+    setUser(e.target.value);
+  };
+  const selectPass = (e) => {
+    setPassword(e.target.value);
+  };
+  function Verify() {
+    if (user === "usuario1" && password === "usuario1") {
+      navigate("/");
+      console.log("Bienvenido Usuario1");
+    } else if (user === "usuario2" && password === "usuario2") {
+      navigate("/");
+      console.log("Bienvenido Usuario2");
+    } else {
+      navigate("/Login");
+      console.log("Bad Login try again");
+    }
   }
 
   return (
@@ -19,7 +35,7 @@ const LoginPage = (props) => {
             <input
               type="text"
               placeholder="User"
-              onChange={(e) => setUser(e.target.value)}
+              onChange={selectUser}
               name="user"
             />
           </label>
@@ -27,11 +43,13 @@ const LoginPage = (props) => {
             <input
               type="password"
               placeholder="Password"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={selectPass}
               name="password"
             />
           </label>
-          <button onClick={Logining} type="submit" value="Submit" />
+          <button onClick={Verify} type="button">
+            Sign In
+          </button>
         </Form>
       </div>
     </div>
