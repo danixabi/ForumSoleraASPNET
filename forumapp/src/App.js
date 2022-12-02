@@ -6,15 +6,6 @@ import Post from "./components/Post";
 import Thread from "./components/Thread";
 import LoginPage from "./components/LoginPage";
 
-function App() {
-  userEffect(() => {
-    axios
-      .get("https://localhost:7029/api/User/GetAll")
-      .then((response: AxiosRespon<any>) => {
-        console.log(response.data);
-      });
-  }, []);
-
   return (
     <div>
       <BrowserRouter>
