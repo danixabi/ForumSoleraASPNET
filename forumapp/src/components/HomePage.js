@@ -1,13 +1,14 @@
 import React from "react";
+import HomeBody from "./HomeBody";
 import Navbar from "./NavBar";
 
 const HomePage = () => {
   return (
     <div>
-      HomePage
       <div>
         <Navbar />
       </div>
+      <HomeBody />
     </div>
   );
 };

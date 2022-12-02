@@ -1,32 +1,24 @@
 import logo from "./logo.svg";
 import "./App.css";
 import HomePage from "./components/HomePage";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ThreadsCatalog from "./components/ThreadsCatalog";
 import Post from "./components/Post";
 import Thread from "./components/Thread";
+import LoginPage from "./components/LoginPage";
 
 function App() {
-  <BrowserRouter>
-    <Routes>
-      <Route path="/">
-        <HomePage />
-      </Route>
-      <Route path="/ThreadCatalog">
-        <ThreadsCatalog />
-      </Route>
-      <Route path="/Thread">
-        <Thread />
-      </Route>
-      <Route path="/Thread/Post">
-        <Post />
-      </Route>
-    </Routes>
-  </BrowserRouter>;
-
   return (
     <div>
-      <HomePage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/ThreadCatalog" element={<ThreadsCatalog />} />
+          <Route path="/Thread" element={<Thread />} />
+          <Route path="/Thread/Post" element={<Post />} />
+          <Route path="/Login" element={<LoginPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

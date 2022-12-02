@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./NavBar.css";
 
 const Navbar = (props) => {
@@ -6,14 +7,14 @@ const Navbar = (props) => {
       <div className="navContainer">
         <span className="logo">SoleraForum.com</span>
         <div className="navItems">
-          <button onClick={props.goHome} className="navButton">
-            Home
+          <button className="navButton">
+            <Link to="/">Home</Link>
           </button>
-          <button onClick={props.bookingCheckHandler} className="navButton">
-            Thread Catalog
+          <button className="navButton">
+            <Link to="/ThreadCatalog">Thread Catalog</Link>
           </button>
-          <button onClick={props.logOut} className="navButton">
-            LogOut
+          <button className="navButton">
+            <Link to="/">Log Out</Link>
           </button>
         </div>
       </div>
