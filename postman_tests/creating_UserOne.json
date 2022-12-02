@@ -1,0 +1,12 @@
+{
+  "value": {
+    "id": 1,
+    "name": "UserOne",
+    "password": "userone",
+    "registeredAt": "2022-12-02T11:24:18.545Z"
+  },
+  "formatters": [],
+  "contentTypes": [],
+  "declaredType": null,
+  "statusCode": 200
+}

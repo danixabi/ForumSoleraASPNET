@@ -1,0 +1,73 @@
+Integrating .net with React:
+https://www.youtube.com/watch?v=uYMbW03uUG8
+
+In .net in Program.cs:
+-----------------------------
+...
+var provider = builder.Services.BuildServiceProvider();
+var configuration = provider.GetRequiredService<IConfiguration>();
+
+builder.Services.AddCors(options =>
+{
+    var frontendUrl = configuration.GetValue<string>("frontend_url");
+    options.AddDefaultPolicy(builder =>
+    {
+        builder.WithOrigins(frontendUrl).AllowAnyMethod().AllowAnyHeader();
+    });
+});
+
+var app = builder.Build();
+...
+app.UseHttpsRedirection();
+app.UseCors();
+-----------------------------
+
+appsettings.Development.json:
+-----------------------------
+{
+  "Logging": {
+    ..
+  },
+  "frontend_url": "http://localhost:3000/"
+}
+-----------------------------
+
+
+
+In React:
+> npm i axios
+-----------------------------
+function App() {
+
+  userEffect(() => {
+    axios.get('https://localhost:7029/api/User/GetAll')
+      .then((response: AxiosResponse<any>) => {
+        console.log(response.data);
+      })
+  }, [])
+
+  return (
+  );
+}
+-----------------------------
+
+For good practice,
+move that URL to a new file called .env.development in the main folder:
+-----------------------------
+REACT_APP_API_URL=https://localhost:7029
+-----------------------------
+
+Create a file called endpoints.ts inside the "src" folder:
+-----------------------------
+const baseUrl = process.env.REACT_APP_API_URL;
+export const urlUser = `${baseUrl}/api/User`
+-----------------------------
+
+Come back to the React file:
+-----------------------------
+...
+import {urlUser} from './endpoints';
+...
+  axios.get(urlUser)
+    ...
+-----------------------------

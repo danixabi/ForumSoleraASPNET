@@ -1,0 +1,12 @@
+{
+  "id": 0,
+  "name": "UserOne",
+  "password": "userone",
+  "registeredAt": "2022-12-02T11:09:39.450Z"
+},
+{
+  "id": 0,
+  "name": "UserTwo",
+  "password": "usertwo",
+  "registeredAt": "2022-12-02T11:09:39.450Z"
+}
