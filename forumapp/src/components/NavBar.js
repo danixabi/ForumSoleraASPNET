@@ -10,7 +10,7 @@ const Navbar = (props) => {
             Home
           </button>
           <button onClick={props.bookingCheckHandler} className="navButton">
-            MyThreads
+            Thread Catalog
           </button>
           <button onClick={props.logOut} className="navButton">
             LogOut
