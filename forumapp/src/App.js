@@ -6,6 +6,7 @@ import Post from "./components/Post";
 import Thread from "./components/Thread";
 import LoginPage from "./components/LoginPage";
 
+function App() {
   return (
     <div>
       <BrowserRouter>
